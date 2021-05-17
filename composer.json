@@ -1,6 +1,6 @@
 {
-  "name": "edwardsteven/rcm-api-laravel",
-  "description": "Package for simplifying the interaction with the Rental Car Manager API using the Laravel framework",
+  "name": "edwardsteven/rcm-api",
+  "description": "Package for simplifying the interaction with the Rental Car Manager API using the PHP",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -16,10 +16,11 @@
   },
   "require": {
     "php" : "^7.4|^8.0",
-    "guzzlehttp/guzzle": "^7.3",
-    "phpunit/phpunit": "^9.5"
+    "nesbot/carbon": "^2.0",
+    "guzzlehttp/guzzle": "^7.0"
   },
   "require-dev": {
+    "phpunit/phpunit": "^9.5",
     "orchestra/testbench": "^6.0"
   },
   "extra": {
