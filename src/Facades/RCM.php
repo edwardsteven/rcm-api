@@ -1,5 +1,5 @@
 <?php
-namespace EdwardSteven\RCMAPI;
+namespace EdwardSteven\RCMAPI\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

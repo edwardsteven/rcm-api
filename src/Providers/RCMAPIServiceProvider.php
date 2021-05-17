@@ -1,5 +1,5 @@
 <?php
-namespace EdwardSteven\RCMAPI;
+namespace EdwardSteven\RCMAPI\Providers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
