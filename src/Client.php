@@ -2,14 +2,16 @@
 
 namespace EdwardSteven\RCMAPI;
 
+use EdwardSteven\RCMAPI\Contracts\ResponseInterface;
 use GuzzleHttp\Client as HTTPClient;
 use EdwardSteven\RCMAPI\Models\Booking;
 use EdwardSteven\RCMAPI\Messages\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use EdwardSteven\RCMAPI\Messages\Response;
+use EdwardSteven\RCMAPI\Contracts\ClientInterface;
 use EdwardSteven\RCMAPI\Exceptions\RCMServerNotConfiguredException;
 
-class Client
+class Client implements ClientInterface
 {
 
     protected HTTPClient $client;
@@ -42,10 +44,10 @@ class Client
 
     /**
      * @param Request $request
-     * @return Response
+     * @return ResponseInterface
      * @throws GuzzleException
      */
-    protected function request(Request $request): Response
+    protected function request(Request $request): ResponseInterface
     {
         return Response::fromResponse($this->client->post($this->endpoint(), [
                 'query' => [
@@ -60,16 +62,14 @@ class Client
     }
 
 
-    public function categoryList()
+    public function categoryList() : ResponseInterface
     {
         return $this->request(Request::fromMethod('categorylist'));
     }
 
 
-    /**
-     * Place a booking with the RCM API
-     */
-    public function book(Booking $booking){
+    public function book(Booking $booking) : ResponseInterface
+    {
 
         return $this->request(Request::fromBooking($booking));
 
